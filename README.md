@@ -10,7 +10,8 @@ The **syntax** file is modified from **Vera** syntax highlighting.
 The **indent** file is modified from **Verilog** indent file.  
 
 ##Comment
-Change by Yuhao for his won project usage. 
+
+Change by Yuhao for his own project usage. 
 
 * * *
 Installation
