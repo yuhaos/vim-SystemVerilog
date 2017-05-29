@@ -357,3 +357,18 @@ snippet head Copy Right
 	${2}
 	\`endif  //$1
 
+snippet add_sub_item
+	add_sub_item(
+		.name           ("${1}"),
+		.description    ("${2}"),
+		.item_type      (${3:COV_POINT})
+	);
+snippet begin_feature
+	begin_feature (
+		.name           ("${1}::${2:CG_NAME}"),
+		.top_inst       ("${3}"),
+		.description    ("${4}"),
+		.spec_ref       (${5:$psprintf("%s -", this.spec_ref})),
+		.item_type      (${6:COV_GROUP})
+	);
+	end_feature(); //$2
