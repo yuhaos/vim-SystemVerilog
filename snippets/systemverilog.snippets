@@ -264,6 +264,14 @@ snippet while  while() ..
 	while (${1:condition}) begin
 	    ${2}
 	end
+snippet info UVM INFO Message ...
+	\`uvm_info(${1:m_id}, $sformatf("${2: information}", ${3:var list}), ${4:UVM_DEBUG})
+snippet error UVM ERROR Message ...
+	\`uvm_error(${1:m_id}, $sformatf("${2: information}", ${3:var list}))
+snippet fatal UVM FATAL Message ...
+	\`uvm_fatal(${1:m_id}, $sformatf("${2: information}", ${3:var list}))
+snippet warn UVM WARNING Message ...
+	\`uvm_warning(${1:m_id}, $sformatf("${2: information}", ${3:var list}))
 snippet uvmobj UVM Object Class
 	class ${1:uvm_class} extends ${2:uvm_object};
 	   ${3}
