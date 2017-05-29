@@ -1,90 +1,90 @@
 snippet always  always @ ..
 	always @(${1:posedge clk}) begin
-	    ${2}
+	   ${2}
 	end
 snippet always  always_comb ..
 	always_comb begin
-	    ${1}
+	   ${1}
 	end
 snippet always_comb  always_comb ..
 	always_comb begin
-	    ${1}
+	   ${1}
 	end
 snippet always  always_ff ..
 	always_ff @(${1:posedge clk or negedge reset_n})
-	    ${2}
+	   ${2}
 	end
 snippet always_ff  always_ff ..
 	always_ff @(${1:posedge clk or negedge reset_n})
-	    ${2}
+	   ${2}
 	end
 snippet always  always_latch ..
 	always_latch
-	    ${1}
+	   ${1}
 	end
 snippet always_latch  always_latch ..
 	always_latch
-	    ${1}
+	   ${1}
 	end
 snippet case  case() .. 
 	case(${1:expression})
-	    ${2:value1}: begin
-	       ${3}
-	    end
+	   ${2:value1}: begin
+	      ${3}
+	   end
 	
-	    // other case branches
+	   // other case branches
 	
-	    default: begin
+	   default: begin
 	
-	    end
+	   end
 	endcase
 snippet case  casex() .. 
 	casex(${1:expression})
-	    ${2:value1}: begin
-	       ${3}
-	    end
+	   ${2:value1}: begin
+	      ${3}
+	   end
 	
-	    // other case branches
+	   // other case branches
 	
-	    default: begin
+	   default: begin
 	
-	    end
+	   end
 	endcase
 snippet casex  casex() .. 
 	casex(${1:expression})
-	    ${2:value1}: begin
-	       ${3}
-	    end
+	   ${2:value1}: begin
+	      ${3}
+	   end
 	
-	    // other case branches
+	   // other case branches
 	
-	    default: begin
+	   default: begin
 	
-	    end
+	   end
 	endcase
 snippet case  casez() .. 
-	casez(${1:expression})
-	    ${2:value1}: begin
-	       ${3}
-	    end
+	casz(${1:expression})
+	   ${2:value1}: begin
+	      ${3}
+	   end
 	
-	    // other case branches
+	   // other case branches
 	
-	    default: begin
+	   default: begin
 	
-	    end
+	   end
 	endcase
 snippet casez  casez() .. 
 	casez(${1:expression})
-	    ${2:value1}: begin
-	       ${3}
-	    end
+	   ${2:value1}: begin
+	      ${3}
+	   end
 	
-	    // other case branches
+	   // other case branches
 	
-	    default: begin
+	   default: begin
 	
-	    end
+	   end
 	endcase
 snippet class  class .. endclass
 	class ${1:class_name} extends ${2:base_class};
@@ -99,27 +99,29 @@ snippet class  class .. endclass
 	endfunction : new
 snippet clocking  clocking .. { .. }
 	clocking ${1:name_cb} @(posedge ${2:clock});
-	    default input #${3:setup_time} output #${4:hold_time};
-	    ${5}
-	    // output declarations
-	    // input declarations
+	   default input #${3:setup_time} output #${4:hold_time};
+	   ${5}
+	   // output declarations
+	   // input declarations
 	endclocking: $1
 snippet do  do .. while()
 	do begin
-	    ${2}
+	   ${2}
 	end while($1);
 snippet enum  enum .. { .. }
-	typedef enum {${2}
-		      } ${1:name_e};
+	typedef enum ${1:DataType}{
+		${3:VarName1} = ${4:VarValue1},
+		${5:VarName2} = ${6:VarValue2}
+	} ${2:name_e};
 snippet final  final ..
 	final begin
 	    ${1}
 	end
 snippet for  for() .. 
-	for(${1:int i = 0}; ${2:i <= n}; ${3:i++}) begin
+	for (${1:int i = 0}; ${2:i <= n}; ${3:i++}) begin
 	    ${4}
 	end
-snippet foreach  foreach(x[i]) ..
+snippet foreach  foreach (x[i]) ..
 	foreach(${1:x}[i]) begin
 	    ${2}
 	end
@@ -129,53 +131,53 @@ snippet forever  forever ..
 	end
 snippet fork  fork .. join
 	fork
-	    begin
-	        ${1}
-	    end
-	    begin
-	
-	    end
+		begin
+		   ${1}
+		end
+		begin
+			${2}
+		end
 	join
 snippet fork  fork .. join_any
 	fork
-	    begin
-	        ${1}
-	    end
-	    begin
-	
-	    end
+	   begin
+	      ${1}
+	   end
+	   begin
+			${2}	
+	   end
 	join_any
 snippet fork  fork .. join_none
 	fork
-	    begin
-	        ${1}
-	    end
-	    begin
-	
-	    end
+	   begin
+	      ${1}
+	   end
+	   begin
+			${3}
+	   end
 	join_none
 snippet function  function .. endfunction
 	function ${1:void} ${2:function_name} ($3);
-	    ${4}
+	   ${4}
 	endfunction: $2
 snippet cover  covergroup .. endgroup
 	covergroup ${1:function_name};
-	    ${2}
+	   ${2}
 	endgroup: $1
 snippet if  if() .. 
 	if(${1:condition}) begin
-	    ${2}
+	   ${2}
 	end
 snippet ife  if() .. else
 	if(${1:condition}) begin
-	    ${2}
+	   ${2}
 	end
 	else begin
-	    ${3}
+	   ${3}
 	end
 snippet initial  initial ..
 	initial begin
-	    ${1}
+	   ${1}
 	end
 snippet interface  interface .. { .. }
 	// transactors that use them
@@ -265,13 +267,13 @@ snippet while  while() ..
 	    ${2}
 	end
 snippet info UVM INFO Message ...
-	\`uvm_info(${1:m_id}, $sformatf("${2: information}", ${3:var list}), ${4:UVM_DEBUG})
+	\`uvm_info(${1:m_id}, $sformatf("${2:information}", ${3:var_list}), ${4:UVM_DEBUG})
 snippet error UVM ERROR Message ...
-	\`uvm_error(${1:m_id}, $sformatf("${2: information}", ${3:var list}))
+	\`uvm_error(${1:m_id}, $sformatf("${2:information}", ${3:var_list}))
 snippet fatal UVM FATAL Message ...
-	\`uvm_fatal(${1:m_id}, $sformatf("${2: information}", ${3:var list}))
+	\`uvm_fatal(${1:m_id}, $sformatf("${2:information}", ${3:var_list}))
 snippet warn UVM WARNING Message ...
-	\`uvm_warning(${1:m_id}, $sformatf("${2: information}", ${3:var list}))
+	\`uvm_warning(${1:m_id}, $sformatf("${2:information}", ${3:var_list}))
 snippet uvmobj UVM Object Class
 	class ${1:uvm_class} extends ${2:uvm_object};
 	   ${3}
